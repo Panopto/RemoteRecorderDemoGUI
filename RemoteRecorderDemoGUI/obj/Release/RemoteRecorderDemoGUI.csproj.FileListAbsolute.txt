@@ -1,0 +1,12 @@
+C:\Users\dliu\Documents\Visual Studio 2012\Projects\RemoteRecorderDemoGUI\RemoteRecorderDemoGUI\bin\Release\RemoteRecorderDemoGUI.exe.config
+C:\Users\dliu\Documents\Visual Studio 2012\Projects\RemoteRecorderDemoGUI\RemoteRecorderDemoGUI\bin\Release\RemoteRecorderDemoGUI.exe
+C:\Users\dliu\Documents\Visual Studio 2012\Projects\RemoteRecorderDemoGUI\RemoteRecorderDemoGUI\bin\Release\RemoteRecorderDemoGUI.pdb
+C:\Users\dliu\Documents\Visual Studio 2012\Projects\RemoteRecorderDemoGUI\RemoteRecorderDemoGUI\obj\Release\MainWindow.baml
+C:\Users\dliu\Documents\Visual Studio 2012\Projects\RemoteRecorderDemoGUI\RemoteRecorderDemoGUI\obj\Release\MainWindow.g.cs
+C:\Users\dliu\Documents\Visual Studio 2012\Projects\RemoteRecorderDemoGUI\RemoteRecorderDemoGUI\obj\Release\App.g.cs
+C:\Users\dliu\Documents\Visual Studio 2012\Projects\RemoteRecorderDemoGUI\RemoteRecorderDemoGUI\obj\Release\RemoteRecorderDemoGUI_MarkupCompile.cache
+C:\Users\dliu\Documents\Visual Studio 2012\Projects\RemoteRecorderDemoGUI\RemoteRecorderDemoGUI\obj\Release\RemoteRecorderDemoGUI.g.resources
+C:\Users\dliu\Documents\Visual Studio 2012\Projects\RemoteRecorderDemoGUI\RemoteRecorderDemoGUI\obj\Release\RemoteRecorderDemoGUI.Properties.Resources.resources
+C:\Users\dliu\Documents\Visual Studio 2012\Projects\RemoteRecorderDemoGUI\RemoteRecorderDemoGUI\obj\Release\RemoteRecorderDemoGUI.csproj.GenerateResource.Cache
+C:\Users\dliu\Documents\Visual Studio 2012\Projects\RemoteRecorderDemoGUI\RemoteRecorderDemoGUI\obj\Release\RemoteRecorderDemoGUI.exe
+C:\Users\dliu\Documents\Visual Studio 2012\Projects\RemoteRecorderDemoGUI\RemoteRecorderDemoGUI\obj\Release\RemoteRecorderDemoGUI.pdb
