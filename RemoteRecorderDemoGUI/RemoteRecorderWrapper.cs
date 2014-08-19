@@ -9,6 +9,8 @@ namespace RemoteRecorderDemoGUI
 {
     class RemoteRecorderWrapper
     {
+        private static int resultPerPage = 10;
+
         /// <summary>
         /// Starts a new recording session.
         /// </summary>
@@ -68,69 +70,37 @@ namespace RemoteRecorderDemoGUI
                                                                               UserKey = userID,
                                                                               Password = userKey
                                                                           };
-            PanoptoSessionManagement.Pagination sessionPagination = new PanoptoSessionManagement.Pagination { MaxNumberResults = 10, PageNumber = 0 };
+            PanoptoSessionManagement.Pagination sessionPagination = new PanoptoSessionManagement.Pagination { MaxNumberResults = resultPerPage, PageNumber = 0 };
 
             // Get data once
-            PanoptoSessionManagement.ListFoldersResponse response = sessionMgr.GetFoldersList(sessionAuthInfo,
-                                                                                              new PanoptoSessionManagement.ListFoldersRequest { Pagination = sessionPagination },
-                                                                                              null);
+            PanoptoSessionManagement.ListFoldersResponse foldersResponse = sessionMgr.GetFoldersList(sessionAuthInfo,
+                                                                                                     new PanoptoSessionManagement.ListFoldersRequest { Pagination = sessionPagination, 
+                                                                                                                                                       SortBy = PanoptoSessionManagement.FolderSortField.Name,
+                                                                                                                                                       SortIncreasing = true },
+                                                                                                     null);
 
             Dictionary<string, Guid> folderInfo = new Dictionary<string, Guid>();
             System.Collections.ArrayList duplicates = new System.Collections.ArrayList();
-            foreach (PanoptoSessionManagement.Folder folder in response.Results)
+            foreach (PanoptoSessionManagement.Folder folder in foldersResponse.Results)
             {
-                // Check for duplicates before storing
-                if (duplicates.Contains(folder.Name))
-                {
-                    folderInfo.Add(folder.Name + " (" + folder.Id + ")", folder.Id);
-                }
-                else if (folderInfo.ContainsKey(folder.Name))
-                {
-                    string tempName = folder.Name;
-                    Guid tempID = folderInfo[folder.Name];
-                    folderInfo.Remove(folder.Name);
-
-                    folderInfo.Add(tempName + " (" + tempID + ")", tempID);
-                    folderInfo.Add(folder.Name + " (" + folder.Id + ")", folder.Id);
-                    duplicates.Add(tempName);
-                }
-                else
-                {
-                    folderInfo.Add(folder.Name, folder.Id);
-                }
+                folderAdd(folderInfo, folder, duplicates);
             }
 
             // Get more data while there are more to get
-            int totalResults = response.TotalNumberResults;
+            int totalResults = foldersResponse.TotalNumberResults;
             int currentResults = 10;
 
             while (currentResults < totalResults)
             {
                 sessionPagination.PageNumber += 1;
-                response = sessionMgr.GetFoldersList(sessionAuthInfo,
-                                                     new PanoptoSessionManagement.ListFoldersRequest { Pagination = sessionPagination },
-                                                     null);
-                foreach (PanoptoSessionManagement.Folder folder in response.Results)
+                foldersResponse = sessionMgr.GetFoldersList(sessionAuthInfo,
+                                                            new PanoptoSessionManagement.ListFoldersRequest { Pagination = sessionPagination, 
+                                                                                                              SortBy = PanoptoSessionManagement.FolderSortField.Name,
+                                                                                                              SortIncreasing = true },
+                                                            null);
+                foreach (PanoptoSessionManagement.Folder folder in foldersResponse.Results)
                 {
-                    // Check duplicates
-                    if (duplicates.Contains(folder.Name))
-                    {
-                        folderInfo.Add(folder.Name + " (" + folder.Id + ")", folder.Id);
-                    }
-                    else if (folderInfo.ContainsKey(folder.Name))
-                    {
-                        string tempName = folder.Name;
-                        Guid tempID = folderInfo[folder.Name];
-                        folderInfo.Remove(folder.Name);
-
-                        folderInfo.Add(tempName + " (" + tempID + ")", tempID);
-                        folderInfo.Add(folder.Name + " (" + folder.Id + ")", folder.Id);
-                        duplicates.Add(tempName);
-                    }
-                    else
-                    {
-                        folderInfo.Add(folder.Name, folder.Id);
-                    }
+                    folderAdd(folderInfo, folder, duplicates);
                 }
                 currentResults += 10;
             }
@@ -153,16 +123,79 @@ namespace RemoteRecorderDemoGUI
                 UserKey = userID,
                 Password = userKey
             };
-            PanoptoRemoteRecorderManagement.Pagination recorderPagination = new PanoptoRemoteRecorderManagement.Pagination { MaxNumberResults = 10, PageNumber = 0 };
+            PanoptoRemoteRecorderManagement.Pagination recorderPagination = new PanoptoRemoteRecorderManagement.Pagination { MaxNumberResults = resultPerPage, PageNumber = 0 };
 
             // Get data once
-            PanoptoRemoteRecorderManagement.ListRecordersResponse response = recorderMgr.ListRecorders(recorderAuthInfo,
-                                                                                                       recorderPagination,
-                                                                                                       PanoptoRemoteRecorderManagement.RecorderSortField.Name);
+            PanoptoRemoteRecorderManagement.ListRecordersResponse recorderResponse = recorderMgr.ListRecorders(recorderAuthInfo,
+                                                                                                               recorderPagination,
+                                                                                                               PanoptoRemoteRecorderManagement.RecorderSortField.Name);
 
             Dictionary<string, Guid> remoteRecorderInfo = new Dictionary<string, Guid>();
             System.Collections.ArrayList duplicates = new System.Collections.ArrayList();
-            foreach (RemoteRecorder rr in response.PagedResults)
+            foreach (RemoteRecorder rr in recorderResponse.PagedResults)
+            {
+                recorderAdd(remoteRecorderInfo, rr, duplicates);
+            }
+
+            // While there are more data remaining, get data
+            int totalResults = recorderResponse.TotalResultCount;
+            int currentResults = 10;
+
+            while (currentResults < totalResults)
+            {
+                recorderPagination.PageNumber += 1;
+                recorderResponse = recorderMgr.ListRecorders(recorderAuthInfo,
+                                                             recorderPagination,
+                                                             PanoptoRemoteRecorderManagement.RecorderSortField.Name);
+                foreach (RemoteRecorder rr in recorderResponse.PagedResults)
+                {
+                    recorderAdd(remoteRecorderInfo, rr, duplicates);
+                }
+                currentResults += 10;
+            }
+
+            return remoteRecorderInfo;
+        }
+
+        /// <summary>
+        /// Add folder into folderInfo for later usage
+        /// </summary>
+        /// <param name="folderInfo">Stores folder info</param>
+        /// <param name="folder">folder to add</param>
+        /// <param name="duplicates">duplicates found</param>
+        private static void folderAdd(Dictionary<string, Guid> folderInfo, PanoptoSessionManagement.Folder folder, System.Collections.ArrayList duplicates)
+        {
+            // Check for duplicates before storing since folders with different parent can have same name
+            if (duplicates.Contains(folder.Name))
+            {
+                folderInfo.Add(folder.Name + " (" + folder.Id + ")", folder.Id);
+            }
+            else if (folderInfo.ContainsKey(folder.Name))
+            {
+                string tempName = folder.Name;
+                Guid tempID = folderInfo[folder.Name];
+                folderInfo.Remove(folder.Name);
+
+                folderInfo.Add(tempName + " (" + tempID + ")", tempID);
+                folderInfo.Add(folder.Name + " (" + folder.Id + ")", folder.Id);
+                duplicates.Add(tempName);
+            }
+            else
+            {
+                folderInfo.Add(folder.Name, folder.Id);
+            }
+        }
+
+        /// <summary>
+        /// Add given remote recorder to list of recorder info
+        /// </summary>
+        /// <param name="remoteRecorderInfo">remote recorder info list</param>
+        /// <param name="rr">remote recorder to add to list</param>
+        /// <param name="duplicates">duplicates found</param>
+        private static void recorderAdd(Dictionary<string, Guid> remoteRecorderInfo, RemoteRecorder rr, System.Collections.ArrayList duplicates)
+        {
+            // Check for recorder status and only store recorders that are connected
+            if (rr.State == RemoteRecorderState.Previewing)
             {
                 // Check for duplicates before storing
                 if (duplicates.Contains(rr.Name))
@@ -184,43 +217,6 @@ namespace RemoteRecorderDemoGUI
                     remoteRecorderInfo.Add(rr.Name, rr.Id);
                 }
             }
-
-            // While there are more data remaining, get data
-            int totalResults = response.TotalResultCount;
-            int currentResults = 10;
-
-            while (currentResults < totalResults)
-            {
-                recorderPagination.PageNumber += 1;
-                response = recorderMgr.ListRecorders(recorderAuthInfo,
-                                                     recorderPagination,
-                                                     PanoptoRemoteRecorderManagement.RecorderSortField.Name);
-                foreach (RemoteRecorder rr in response.PagedResults)
-                {
-                    // Check for duplicates
-                    if (duplicates.Contains(rr.Name))
-                    {
-                        remoteRecorderInfo.Add(rr.Name + " (" + rr.Id + ")", rr.Id);
-                    }
-                    else if (remoteRecorderInfo.ContainsKey(rr.Name))
-                    {
-                        string tempName = rr.Name;
-                        Guid tempID = remoteRecorderInfo[rr.Name];
-                        remoteRecorderInfo.Remove(rr.Name);
-
-                        remoteRecorderInfo.Add(tempName + " (" + tempID + ")", tempID);
-                        remoteRecorderInfo.Add(rr.Name + " (" + rr.Id + ")", rr.Id);
-                        duplicates.Add(tempName);
-                    }
-                    else
-                    {
-                        remoteRecorderInfo.Add(rr.Name, rr.Id);
-                    }
-                }
-                currentResults += 10;
-            }
-
-            return remoteRecorderInfo;
         }
     }
 }

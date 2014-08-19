@@ -56,32 +56,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="RemoteRecorderWrapper.cs" />
-    <Compile Include="Service References\PanoptoAccessManagement\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\PanoptoAuth\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Service References\PanoptoRemoteRecorderManagement\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Service References\PanoptoSessionManagement\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\PanoptoUsageReporting\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\PanoptoUserManagement\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -122,38 +102,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\PanoptoAccessManagement\AccessManagement.wsdl" />
-    <None Include="Service References\PanoptoAccessManagement\AccessManagement.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PanoptoAccessManagement\AccessManagement1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PanoptoAccessManagement\AccessManagement2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PanoptoAccessManagement\AccessManagement3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PanoptoAccessManagement\RemoteRecorderDemoGUI.PanoptoAccessManagement.FolderAccessDetails.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\PanoptoAccessManagement\RemoteRecorderDemoGUI.PanoptoAccessManagement.GroupAccessDetails.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\PanoptoAccessManagement\RemoteRecorderDemoGUI.PanoptoAccessManagement.SessionAccessDetails.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\PanoptoAccessManagement\RemoteRecorderDemoGUI.PanoptoAccessManagement.UserAccessDetails.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\PanoptoAuth\Auth.wsdl" />
-    <None Include="Service References\PanoptoAuth\Auth.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PanoptoAuth\Auth1.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\PanoptoRemoteRecorderManagement\RemoteRecorderDemoGUI.PanoptoRemoteRecorderManagement.ListRecordersResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -219,47 +167,6 @@
     <None Include="Service References\PanoptoSessionManagement\SessionManagement4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PanoptoUsageReporting\RemoteRecorderDemoGUI.PanoptoUsageReporting.DetailedUsageResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\PanoptoUsageReporting\RemoteRecorderDemoGUI.PanoptoUsageReporting.SummaryUsageResponseItem.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\PanoptoUsageReporting\UsageReporting.wsdl" />
-    <None Include="Service References\PanoptoUsageReporting\UsageReporting.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PanoptoUsageReporting\UsageReporting1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PanoptoUsageReporting\UsageReporting2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PanoptoUserManagement\RemoteRecorderDemoGUI.PanoptoUserManagement.Group.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\PanoptoUserManagement\RemoteRecorderDemoGUI.PanoptoUserManagement.ListGroupsResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\PanoptoUserManagement\RemoteRecorderDemoGUI.PanoptoUserManagement.ListUsersResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\PanoptoUserManagement\RemoteRecorderDemoGUI.PanoptoUserManagement.User.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\PanoptoUserManagement\UserManagement.wsdl" />
-    <None Include="Service References\PanoptoUserManagement\UserManagement.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PanoptoUserManagement\UserManagement1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PanoptoUserManagement\UserManagement2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PanoptoUserManagement\UserManagement3.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -270,75 +177,8 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\PanoptoAccessManagement\" />
-    <WCFMetadataStorage Include="Service References\PanoptoAuth\" />
     <WCFMetadataStorage Include="Service References\PanoptoRemoteRecorderManagement\" />
     <WCFMetadataStorage Include="Service References\PanoptoSessionManagement\" />
-    <WCFMetadataStorage Include="Service References\PanoptoUsageReporting\" />
-    <WCFMetadataStorage Include="Service References\PanoptoUserManagement\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\PanoptoAccessManagement\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\PanoptoAccessManagement\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\PanoptoAccessManagement\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\PanoptoAuth\Auth.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\PanoptoAuth\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\PanoptoAuth\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\PanoptoAuth\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\PanoptoSessionManagement\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\PanoptoSessionManagement\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\PanoptoSessionManagement\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\PanoptoUsageReporting\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\PanoptoUsageReporting\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\PanoptoUsageReporting\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\PanoptoUserManagement\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\PanoptoUserManagement\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\PanoptoUserManagement\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\PanoptoRemoteRecorderManagement\configuration91.svcinfo" />
@@ -354,6 +194,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Logo-PanoptoGlobe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PanoptoSessionManagement\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PanoptoSessionManagement\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PanoptoSessionManagement\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

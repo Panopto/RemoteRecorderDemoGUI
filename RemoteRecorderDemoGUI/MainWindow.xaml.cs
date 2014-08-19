@@ -34,7 +34,7 @@ namespace RemoteRecorderDemoGUI
         static Dictionary<string, Guid> recorderInfo;
         static bool loginSuccess = true;
         static string loginFailureMessage = "";
-        ScheduledRecordingResult result;
+        ScheduledRecordingResult recordingResult;
         Timer recordingTimer;
 
         public MainWindow()
@@ -124,14 +124,7 @@ namespace RemoteRecorderDemoGUI
             // Handle failure
             if (progress == 0)
             {
-                if (loginFailureMessage.Length == 0)
-                {
-                    loginFailureMessage = e.UserState as string;
-                }
-                else
-                {
-                    loginFailureMessage = loginFailureMessage + "; " + e.UserState as string;
-                }
+                loginFailureMessage = e.UserState as string + "; ";
                 loginSuccess = false;
             }
 
@@ -161,12 +154,14 @@ namespace RemoteRecorderDemoGUI
             if (loginSuccess)
             {
                 // Process data
-                System.Collections.ArrayList keyArray = new System.Collections.ArrayList(folderInfo.Keys);
-                keyArray.Sort();
-                FillComboBox(Folder, keyArray);
-                keyArray = new System.Collections.ArrayList(recorderInfo.Keys);
-                keyArray.Sort();
-                FillComboBox(RemoteRecorder, keyArray);
+                //System.Collections.ArrayList keyArray = new System.Collections.ArrayList(folderInfo.Keys);
+                //keyArray.Sort();
+                //FillComboBox(Folder, keyArray);
+                Folder.ItemsSource = folderInfo.Keys;
+                //keyArray = new System.Collections.ArrayList(recorderInfo.Keys);
+                //keyArray.Sort();
+                //FillComboBox(RemoteRecorder, keyArray);
+                RemoteRecorder.ItemsSource = recorderInfo.Keys;
 
                 // Setup UI to schedule remote recording
                 foreach (UIElement elem in RROptions.Children)
@@ -273,7 +268,7 @@ namespace RemoteRecorderDemoGUI
             Guid folderID = Guid.Empty;
             if (Folder.SelectedIndex >= 0)
             {
-                string folderName = (Folder.Items[Folder.SelectedIndex] as ComboBoxItem).Content as string;
+                string folderName = Folder.Text;
                 folderID = folderInfo[folderName];
             }
             else
@@ -285,20 +280,13 @@ namespace RemoteRecorderDemoGUI
             Guid rrID = Guid.Empty;
             if (RemoteRecorder.SelectedIndex >= 0)
             {
-                string rrName = (RemoteRecorder.Items[RemoteRecorder.SelectedIndex] as ComboBoxItem).Content as string;
+                string rrName = RemoteRecorder.Text;
                 rrID = recorderInfo[rrName];
             }
             else
             {
                 recordingSuccess = false;
-                if (recordingFailureMessage.Length == 0)
-                {
-                    recordingFailureMessage += "Choose a remote recorder to record from";
-                }
-                else
-                {
-                    recordingFailureMessage += "; Choose a remote recorder to record from";
-                }
+                recordingFailureMessage += "Choose a remote recorder to record from; ";
             }
 
             try
@@ -307,35 +295,21 @@ namespace RemoteRecorderDemoGUI
                 if (length <= 0)
                 {
                     recordingSuccess = false;
-                    if (recordingFailureMessage.Length == 0)
-                    {
-                        recordingFailureMessage += "Invalid session length input";
-                    }
-                    else
-                    {
-                        recordingFailureMessage += "; Invalid session length input";
-                    }
+                    recordingFailureMessage += "Invalid session length input; ";
                 }
             }
             catch (Exception)
             {
                 recordingSuccess = false;
-                if (recordingFailureMessage.Length == 0)
-                {
-                    recordingFailureMessage += "Invalid session length input";
-                }
-                else
-                {
-                    recordingFailureMessage += "; Invalid session length input";
-                }
+                recordingFailureMessage += "Invalid session length input; ";
             }
 
             // Start UI if information is correct
             if (recordingSuccess)
             {
-                result = RemoteRecorderWrapper.StartRecordingSession(rrMgr, authInfo, length, SessionName.Text, folderID, rrID);
+                recordingResult = RemoteRecorderWrapper.StartRecordingSession(rrMgr, authInfo, length, SessionName.Text, folderID, rrID);
                 
-                if (result == null || result.SessionIDs == null)
+                if (recordingResult == null || recordingResult.SessionIDs == null || recordingResult.SessionIDs.Length == 0)
                 {
                     recordingSuccess = false;
                     recordingFailureMessage += "Start Recording Failed: Unable to start recording";
@@ -381,7 +355,7 @@ namespace RemoteRecorderDemoGUI
             StartStop.Click += StartRecording_Click;
 
             // Stop the recording
-            RemoteRecorderWrapper.StopSessionRecording(rrMgr, authInfo, result.SessionIDs[0]);
+            RemoteRecorderWrapper.StopSessionRecording(rrMgr, authInfo, recordingResult.SessionIDs[0]);
 
             Status.Content = "Recording Stopped";
 
