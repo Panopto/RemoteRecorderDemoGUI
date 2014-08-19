@@ -154,13 +154,7 @@ namespace RemoteRecorderDemoGUI
             if (loginSuccess)
             {
                 // Process data
-                //System.Collections.ArrayList keyArray = new System.Collections.ArrayList(folderInfo.Keys);
-                //keyArray.Sort();
-                //FillComboBox(Folder, keyArray);
                 Folder.ItemsSource = folderInfo.Keys;
-                //keyArray = new System.Collections.ArrayList(recorderInfo.Keys);
-                //keyArray.Sort();
-                //FillComboBox(RemoteRecorder, keyArray);
                 RemoteRecorder.ItemsSource = recorderInfo.Keys;
 
                 // Setup UI to schedule remote recording

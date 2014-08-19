@@ -165,25 +165,26 @@ namespace RemoteRecorderDemoGUI
         /// <param name="duplicates">duplicates found</param>
         private static void folderAdd(Dictionary<string, Guid> folderInfo, PanoptoSessionManagement.Folder folder, System.Collections.ArrayList duplicates)
         {
+            string folderName = folder.Name;
+
             // Check for duplicates before storing since folders with different parent can have same name
             if (duplicates.Contains(folder.Name))
             {
-                folderInfo.Add(folder.Name + " (" + folder.Id + ")", folder.Id);
+                folderName += " (" + folder.Id + ")";
             }
             else if (folderInfo.ContainsKey(folder.Name))
             {
-                string tempName = folder.Name;
                 Guid tempID = folderInfo[folder.Name];
+                string tempName = folder.Name + " (" + tempID + ")";
                 folderInfo.Remove(folder.Name);
 
-                folderInfo.Add(tempName + " (" + tempID + ")", tempID);
-                folderInfo.Add(folder.Name + " (" + folder.Id + ")", folder.Id);
-                duplicates.Add(tempName);
+                folderInfo.Add(tempName, tempID);
+                duplicates.Add(folder.Name);
+
+                folderName += " (" + folder.Id + ")";
             }
-            else
-            {
-                folderInfo.Add(folder.Name, folder.Id);
-            }
+
+            folderInfo.Add(folder.Name, folder.Id);
         }
 
         /// <summary>
@@ -197,25 +198,26 @@ namespace RemoteRecorderDemoGUI
             // Check for recorder status and only store recorders that are connected
             if (rr.State == RemoteRecorderState.Previewing)
             {
+                string rrName = rr.Name;
+
                 // Check for duplicates before storing
                 if (duplicates.Contains(rr.Name))
                 {
-                    remoteRecorderInfo.Add(rr.Name + " (" + rr.Id + ")", rr.Id);
+                    rrName += " (" + rr.Id + ")";
                 }
                 else if (remoteRecorderInfo.ContainsKey(rr.Name))
                 {
-                    string tempName = rr.Name;
                     Guid tempID = remoteRecorderInfo[rr.Name];
+                    string tempName = rr.Name + " (" + tempID + ")";
                     remoteRecorderInfo.Remove(rr.Name);
 
-                    remoteRecorderInfo.Add(tempName + " (" + tempID + ")", tempID);
-                    remoteRecorderInfo.Add(rr.Name + " (" + rr.Id + ")", rr.Id);
-                    duplicates.Add(tempName);
+                    remoteRecorderInfo.Add(tempName, tempID);
+                    duplicates.Add(rr.Name);
+
+                    rrName += " (" + rr.Id + ")";
                 }
-                else
-                {
-                    remoteRecorderInfo.Add(rr.Name, rr.Id);
-                }
+
+                remoteRecorderInfo.Add(rr.Name, rr.Id);
             }
         }
     }
