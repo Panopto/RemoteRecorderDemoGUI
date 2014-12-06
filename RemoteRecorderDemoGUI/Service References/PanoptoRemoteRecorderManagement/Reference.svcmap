@@ -19,16 +19,16 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="https://testing.panopto.com/Panopto/PublicAPI/4.2/RemoteRecorderManagement.svc?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="https://testing.panopto.com/Panopto/PublicAPI/4.6/RemoteRecorderManagement.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="RemoteRecorderManagement.xsd" MetadataType="Schema" ID="36998912-31dc-4316-9d35-40903ea14b22" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.2/RemoteRecorderManagement.svc?xsd=xsd0" />
-    <MetadataFile FileName="RemoteRecorderManagement1.xsd" MetadataType="Schema" ID="d6f90751-705e-4b6f-9028-86d2d4917181" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.2/RemoteRecorderManagement.svc?xsd=xsd1" />
-    <MetadataFile FileName="RemoteRecorderManagement2.xsd" MetadataType="Schema" ID="2455018f-7a59-455d-a56d-9f65fbb18b08" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.2/RemoteRecorderManagement.svc?xsd=xsd2" />
-    <MetadataFile FileName="RemoteRecorderManagement3.xsd" MetadataType="Schema" ID="8e63d2f1-4c7f-422a-a05e-294db531bed5" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.2/RemoteRecorderManagement.svc?xsd=xsd3" />
-    <MetadataFile FileName="RemoteRecorderManagement4.xsd" MetadataType="Schema" ID="165f56d8-4f3f-4758-88e8-d0071cf39c00" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.2/RemoteRecorderManagement.svc?xsd=xsd4" />
-    <MetadataFile FileName="RemoteRecorderManagement5.xsd" MetadataType="Schema" ID="9d100f83-0569-4e0b-ac9f-d0bc7d716963" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.2/RemoteRecorderManagement.svc?xsd=xsd5" />
-    <MetadataFile FileName="RemoteRecorderManagement.wsdl" MetadataType="Wsdl" ID="060a507f-1213-4f7f-a879-2f5ac03220cb" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPI/4.2/RemoteRecorderManagement.svc?wsdl" />
+    <MetadataFile FileName="RemoteRecorderManagement6.xsd" MetadataType="Schema" ID="9108e12e-f0bd-4d27-a7e0-57705480f8fe" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.6/RemoteRecorderManagement.svc?xsd=xsd5" />
+    <MetadataFile FileName="RemoteRecorderManagement61.xsd" MetadataType="Schema" ID="019f9f6f-dba4-4c3c-8d17-a933f4e6a778" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.6/RemoteRecorderManagement.svc?xsd=xsd0" />
+    <MetadataFile FileName="RemoteRecorderManagement62.xsd" MetadataType="Schema" ID="808a9222-0276-479f-bbdc-0df150984c3d" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.6/RemoteRecorderManagement.svc?xsd=xsd1" />
+    <MetadataFile FileName="RemoteRecorderManagement63.xsd" MetadataType="Schema" ID="9b5b01cc-9243-454a-a4de-6849175a27e4" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.6/RemoteRecorderManagement.svc?xsd=xsd2" />
+    <MetadataFile FileName="RemoteRecorderManagement64.xsd" MetadataType="Schema" ID="1db2132b-a056-4dd5-a8c8-089b89055de1" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.6/RemoteRecorderManagement.svc?xsd=xsd3" />
+    <MetadataFile FileName="RemoteRecorderManagement65.xsd" MetadataType="Schema" ID="156b47bc-8ea5-4c78-a67f-9679d7ad33a7" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.6/RemoteRecorderManagement.svc?xsd=xsd4" />
+    <MetadataFile FileName="RemoteRecorderManagement1.wsdl" MetadataType="Wsdl" ID="befdcf9d-72b6-42f2-ba06-5e2504cccc31" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPI/4.6/RemoteRecorderManagement.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

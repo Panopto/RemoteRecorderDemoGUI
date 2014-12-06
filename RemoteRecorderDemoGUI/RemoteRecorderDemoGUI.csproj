@@ -111,23 +111,23 @@
     <None Include="Service References\PanoptoRemoteRecorderManagement\RemoteRecorderDemoGUI.PanoptoRemoteRecorderManagement.ScheduledRecordingResult.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\PanoptoRemoteRecorderManagement\RemoteRecorderManagement.wsdl" />
-    <None Include="Service References\PanoptoRemoteRecorderManagement\RemoteRecorderManagement.xsd">
+    <None Include="Service References\PanoptoRemoteRecorderManagement\RemoteRecorderManagement1.wsdl" />
+    <None Include="Service References\PanoptoRemoteRecorderManagement\RemoteRecorderManagement6.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PanoptoRemoteRecorderManagement\RemoteRecorderManagement1.xsd">
+    <None Include="Service References\PanoptoRemoteRecorderManagement\RemoteRecorderManagement61.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PanoptoRemoteRecorderManagement\RemoteRecorderManagement2.xsd">
+    <None Include="Service References\PanoptoRemoteRecorderManagement\RemoteRecorderManagement62.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PanoptoRemoteRecorderManagement\RemoteRecorderManagement3.xsd">
+    <None Include="Service References\PanoptoRemoteRecorderManagement\RemoteRecorderManagement63.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PanoptoRemoteRecorderManagement\RemoteRecorderManagement4.xsd">
+    <None Include="Service References\PanoptoRemoteRecorderManagement\RemoteRecorderManagement64.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PanoptoRemoteRecorderManagement\RemoteRecorderManagement5.xsd">
+    <None Include="Service References\PanoptoRemoteRecorderManagement\RemoteRecorderManagement65.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\PanoptoSessionManagement\RemoteRecorderDemoGUI.PanoptoSessionManagement.Folder.datasource">
@@ -151,20 +151,23 @@
     <None Include="Service References\PanoptoSessionManagement\RemoteRecorderDemoGUI.PanoptoSessionManagement.Session.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\PanoptoSessionManagement\SessionManagement.wsdl" />
-    <None Include="Service References\PanoptoSessionManagement\SessionManagement.xsd">
+    <None Include="Service References\PanoptoSessionManagement\SessionManagement1.wsdl" />
+    <None Include="Service References\PanoptoSessionManagement\SessionManagement5.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PanoptoSessionManagement\SessionManagement1.xsd">
+    <None Include="Service References\PanoptoSessionManagement\SessionManagement51.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PanoptoSessionManagement\SessionManagement2.xsd">
+    <None Include="Service References\PanoptoSessionManagement\SessionManagement52.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PanoptoSessionManagement\SessionManagement3.xsd">
+    <None Include="Service References\PanoptoSessionManagement\SessionManagement53.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PanoptoSessionManagement\SessionManagement4.xsd">
+    <None Include="Service References\PanoptoSessionManagement\SessionManagement54.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PanoptoSessionManagement\SessionManagement55.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

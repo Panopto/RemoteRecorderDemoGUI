@@ -9,7 +9,7 @@ namespace RemoteRecorderDemoGUI
 {
     class RemoteRecorderWrapper
     {
-        private static int resultPerPage = 10;
+        private static int resultPerPage = 5;
 
         /// <summary>
         /// Starts a new recording session.
@@ -88,7 +88,7 @@ namespace RemoteRecorderDemoGUI
 
             // Get more data while there are more to get
             int totalResults = foldersResponse.TotalNumberResults;
-            int currentResults = 10;
+            int currentResults = resultPerPage;
 
             while (currentResults < totalResults)
             {
@@ -102,7 +102,7 @@ namespace RemoteRecorderDemoGUI
                 {
                     folderAdd(folderInfo, folder, duplicates);
                 }
-                currentResults += 10;
+                currentResults += resultPerPage;
             }
 
             return folderInfo;
@@ -139,7 +139,7 @@ namespace RemoteRecorderDemoGUI
 
             // While there are more data remaining, get data
             int totalResults = recorderResponse.TotalResultCount;
-            int currentResults = 10;
+            int currentResults = resultPerPage;
 
             while (currentResults < totalResults)
             {
@@ -151,7 +151,7 @@ namespace RemoteRecorderDemoGUI
                 {
                     recorderAdd(remoteRecorderInfo, rr, duplicates);
                 }
-                currentResults += 10;
+                currentResults += resultPerPage;
             }
 
             return remoteRecorderInfo;
