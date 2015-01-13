@@ -184,7 +184,7 @@ namespace RemoteRecorderDemoGUI
                 folderName += " (" + folder.Id + ")";
             }
 
-            folderInfo.Add(folder.Name, folder.Id);
+            folderInfo.Add(folderName, folder.Id);
         }
 
         /// <summary>
